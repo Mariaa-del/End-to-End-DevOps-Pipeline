@@ -12,6 +12,12 @@ pipeline {
         stage('Checkout') {
             steps { checkout scm }
         }
+    pipeline {
+    agent any
+    environment {
+        PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
+    }
+    stages {
         stage('Build') {
             steps { script { run("${py()} -m py_compile app.py") } }
         }

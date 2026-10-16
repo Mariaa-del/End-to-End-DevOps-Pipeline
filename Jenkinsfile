@@ -8,16 +8,13 @@ def py() { return isUnix() ? 'python3' : 'python' }
 
 pipeline {
     agent any
-    stages {
-        stage('Checkout') {
-            steps { checkout scm }
-        }
-    pipeline {
-    agent any
     environment {
         PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
     }
     stages {
+        stage('Checkout') {
+            steps { checkout scm }
+        }
         stage('Build') {
             steps { script { run("${py()} -m py_compile app.py") } }
         }

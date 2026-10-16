@@ -6,13 +6,13 @@ def runQuiet(String cmd) {
 }
 def py() { return isUnix() ? 'python3' : 'python' }
 def docker() {
-    return isUnix() ? 'docker' : '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe"'
+    return isUnix() ? 'docker' : '"C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe"'
 }
 
 pipeline {
     agent any
     environment {
-        PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
+        PATH = "C:\\Users\\maria\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;${env.PATH}"
     }
     stages {
         stage('Checkout') {
